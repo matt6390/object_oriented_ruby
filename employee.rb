@@ -31,16 +31,24 @@ class Employee
 
   end 
 
-  def first_name
-    @first_name
+  def first_name                  #these are setter methods
+    @first_name                 #these are setter methods
+  end                 #these are setter methods
+                  #these are setter methods
+  def last_name                 #these are setter methods
+    @last_name                  #these are setter methods
+  end                 #these are setter methods
+                  #these are setter methods
+  def salary                  #these are setter methods
+    @salary                   #these are setter methods
   end
 
-  def last_name
-    @last_name
+  def active
+    @active
   end
 
-  def salary
-    @salary 
+  def active=(new_active)
+    @active = new_active
   end
 
   def print_info
@@ -50,15 +58,27 @@ class Employee
   def give_annual_raise
     @salary = @salary * 1.05
   end 
+
+  def first 
+    "hello"
+  end
+
+  def second
+    first
+  end
 end
 
 employee_1 = Employee.new("Bruce", "Wayne", 70000, true)
 employee_2 = Employee.new("Diana", "Prince", 80000, true)
-p employee_1
-p employee_2.salary
-employee_2.give_annual_raise
-p employee_2.salary
-employee_1.print_info
+# p employee_1
+# p employee_2.salary
+# employee_2.give_annual_raise
+# p employee_2.salary
+# employee_1.print_info
+
+p employee_1.second
+employee_1.active=(false)
+p employee_1.active
 
 
 
