@@ -30,15 +30,35 @@ class Employee
     @active = input_active
 
   end 
-  def print_info
-    puts "#{@first_name} #{@last_name} makes #{@salary} a year."
 
+  def first_name
+    @first_name
+  end
+
+  def last_name
+    @last_name
+  end
+
+  def salary
+    @salary 
+  end
+
+  def print_info
+    puts "#{first_name} #{last_name} makes #{salary} a year."
+  end 
+
+  def give_annual_raise
+    @salary = @salary * 1.05
   end 
 end
 
 employee_1 = Employee.new("Bruce", "Wayne", 70000, true)
+employee_2 = Employee.new("Diana", "Prince", 80000, true)
+p employee_1
+p employee_2.salary
+employee_2.give_annual_raise
+p employee_2.salary
 employee_1.print_info
-
 
 
 
