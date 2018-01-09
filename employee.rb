@@ -23,29 +23,32 @@
 
 
 class Employee
-  def initialize(input_first_name, input_last_name, input_salary, input_active)
-    @first_name = input_first_name
-    @last_name = input_last_name
-    @salary = input_salary
-    @active = input_active
+  attr_reader :first_name, :last_name, :salary, :active
+  attr_writer :active
+
+  def initialize(input_options)
+    @first_name = input_options[:first_name]
+    @last_name = input_options[:last_name]
+    @salary = input_options[:salary]
+    @active = input_options[:active]
 
   end 
 
-  def first_name                  #these are setter methods
-    @first_name                 #these are setter methods
-  end                 #these are setter methods
-                  #these are setter methods
-  def last_name                 #these are setter methods
-    @last_name                  #these are setter methods
-  end                 #these are setter methods
-                  #these are setter methods
-  def salary                  #these are setter methods
-    @salary                   #these are setter methods
-  end
+  # def first_name                  #these are setter methods
+  #   @first_name                 #these are setter methods
+  # end                 #these are setter methods
+  #                 #these are setter methods
+  # def last_name                 #these are setter methods
+  #   @last_name                  #these are setter methods
+  # end                 #these are setter methods
+  #                 #these are setter methods
+  # def salary                  #these are setter methods
+  #   @salary                   #these are setter methods
+  # end
 
-  def active
-    @active
-  end
+  # def active
+  #   @active
+  # end
 
   def active=(new_active)
     @active = new_active
@@ -58,27 +61,26 @@ class Employee
   def give_annual_raise
     @salary = @salary * 1.05
   end 
-
-  def first 
-    "hello"
-  end
-
-  def second
-    first
-  end
 end
 
-employee_1 = Employee.new("Bruce", "Wayne", 70000, true)
-employee_2 = Employee.new("Diana", "Prince", 80000, true)
+employee_1 = Employee.new(
+                          first_name: "Bruce",
+                          last_name: "Wayne",
+                          price: 70000,
+                          active: true
+                          )
+employee_2 = Employee.new(
+                          first_name: "Diana",
+                          last_name: "Prince",
+                          price: 80000,
+                          active: true
+                          )
 # p employee_1
 # p employee_2.salary
 # employee_2.give_annual_raise
 # p employee_2.salary
 # employee_1.print_info
 
-p employee_1.second
-employee_1.active=(false)
-p employee_1.active
 
 
 
