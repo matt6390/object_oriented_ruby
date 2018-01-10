@@ -64,22 +64,66 @@ class Employee
 end
 
 employee_1 = Employee.new(
-                          first_name: "Bruce",
-                          last_name: "Wayne",
-                          price: 70000,
-                          active: true
+                          first_name: "Bruce",#are hashes
+                          last_name: "Wayne", #are hashes
+                          salary: 70000,#are hashes
+                          active: true#are hashes
                           )
 employee_2 = Employee.new(
-                          first_name: "Diana",
-                          last_name: "Prince",
-                          price: 80000,
-                          active: true
+                          first_name: "Diana", #are hashes
+                          last_name: "Prince", #are hashes
+                          salary: 80000, #are hashes
+                          active: true #are hashes
                           )
 # p employee_1
 # p employee_2.salary
 # employee_2.give_annual_raise
 # p employee_2.salary
 # employee_1.print_info
+
+
+
+class Manager < Employee 
+  def initialize(input_options)
+    super(input_options)  #super will bring any attributes from the previous initialize in the Superclass (Employee) of Manager  [an alternative for copying and pasting]
+    @employees = input_options[:employees]  #reseting these values from before, since when initialize is ran a second time, it is reset
+  end
+
+
+  def send_report
+    puts "Sending Email..."
+    #code that sends email
+    puts "Email Sent."
+  end
+
+  def give_all_raise   #loops through every single employee that is created using   @employees
+    @employees.each do |x|   #loops through every single employee that is created using   @employees
+      x.give_annual_raise   #loops through every single employee that is created using   @employees
+      p x   #loops through every single employee that is created using   @employees
+    end   #loops through every single employee that is created using   @employees
+  end   #loops through every single employee that is created using   @employees
+   #loops through every single employee that is created using   @employees
+    def fire_all_employees   #loops through every single employee that is created using   @employees
+      @employees.each do |x|   #loops through every single employee that is created using   @employees
+        x.active = false   #loops through every single employee that is created using   @employees
+        p x   #loops through every single employee that is created using   @employees
+      end   #loops through every single employee that is created using   @employees
+    end
+
+
+end
+
+manager = Manager.new(
+                      first_name: "Clark",
+                      last_name: "Kent",
+                      salary: "100000",
+                      active: true,
+                      employees: [employee_1, employee_2]
+                      )
+
+
+
+
 
 
 
