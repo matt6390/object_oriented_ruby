@@ -45,5 +45,33 @@ item_1 = Store.new("boat", "red", 10)
 item_2 = Store.new("car", "green", 15)
 item_3 = Store.new("wingsuit", "rainbow", 25)
 
-p item_1
+
+
+
+class Food < Store
+  def initialize(input_item_name, input_item_color, input_item_price)
+    super(input_item_name, input_item_color, input_item_price)
+    @shelf_life = 3
+  end
+
+  def shelf_life
+    @shelf_life
+  end
+
+end
+
+food = Food.new(@item_name, @item_color, @item_price)
+
+
+p food.shelf_life
+
+
+
+
+
+
+
+
+
+
 
