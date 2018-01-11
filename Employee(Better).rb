@@ -5,7 +5,6 @@ module Reporting
     #code that sends email
     puts "Email Sent."
   end
-
 end 
 
 

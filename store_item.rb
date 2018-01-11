@@ -4,16 +4,15 @@
 # boat = ["name" => "boat", "color" => "red", :price => 10, shelf: 2]
 # car = ["name" => "car", "color" => "green", :price => 15, shelf: 1]
 # wingsuit = ["name" => "wingsuit", "color" => "rainbow", :price => 25, shelf: 86]
+require "./sale.rb"
 
-
-
+module StoreFront
 class Store
-
-
+  include Sale
   def initialize(input_item_name, input_item_color, input_item_price)
-    @item_name = input_item_name
-    @item_color = input_item_color
-    @item_price = input_item_price
+    @name = input_item_name
+    @color = input_item_color
+    @price = input_item_price
   end
 
   def name
@@ -40,32 +39,7 @@ class Store
     @color = new_color
   end
 end
-
-item_1 = Store.new("boat", "red", 10)
-item_2 = Store.new("car", "green", 15)
-item_3 = Store.new("wingsuit", "rainbow", 25)
-
-
-
-
-class Food < Store
-  def initialize(input_item_name, input_item_color, input_item_price)
-    super(input_item_name, input_item_color, input_item_price)
-    @shelf_life = 3
-  end
-
-  def shelf_life
-    @shelf_life
-  end
-
 end
-
-food = Food.new(@item_name, @item_color, @item_price)
-
-
-p food.shelf_life
-
-
 
 
 
