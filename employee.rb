@@ -1,3 +1,12 @@
+module Reporting
+
+  def send_report
+    puts "Sending Email..."
+    #code that sends email
+    puts "Email Sent."
+  end
+
+end 
 # # employee_1 = ["Bruce", "Wayne", 70000, true]
 # # employee_2 = ["Diana", "Prince", 80000, true]
 
@@ -84,17 +93,18 @@ employee_2 = Employee.new(
 
 
 class Manager < Employee 
+  include Reporting    #this will replace the send_report method
   def initialize(input_options)
     super(input_options)  #super will bring any attributes from the previous initialize in the Superclass (Employee) of Manager  [an alternative for copying and pasting]
     @employees = input_options[:employees]  #reseting these values from before, since when initialize is ran a second time, it is reset
   end
 
 
-  def send_report
-    puts "Sending Email..."
-    #code that sends email
-    puts "Email Sent."
-  end
+  # def send_report      #being replaced by the Reporting module
+  #   puts "Sending Email..."      #being replaced by the Reporting module
+  #   #code that sends email      #being replaced by the Reporting module
+  #   puts "Email Sent."      #being replaced by the Reporting module
+  # end      #being replaced by the Reporting module
 
   def give_all_raise   #loops through every single employee that is created using   @employees
     @employees.each do |x|   #loops through every single employee that is created using   @employees
@@ -122,13 +132,28 @@ manager = Manager.new(
                       )
 
 
+class Intern < Employee 
+    include Reporting    #this will replace the send_report method
+
+  # def send_report       #being replaced by the Reporting module
+  #   puts "Sending Email..."       #being replaced by the Reporting module
+  #   #code that sends email       #being replaced by the Reporting module
+  #   puts "Email Sent."       #being replaced by the Reporting module
+  # end       #being replaced by the Reporting module
+
+end 
 
 
+intern = Intern.new(
+                    first_name: "Jimmy",
+                    last_name: "Olson",
+                    salary: 30000,
+                    active: true
+                    )
 
 
-
-
-
+intern.print_info
+intern.send_report
 
 
 
